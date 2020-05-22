@@ -2,8 +2,8 @@ object FrmPrincipal: TFrmPrincipal
   Left = 0
   Top = 0
   Caption = 'Testes com o Pascal Script'
-  ClientHeight = 488
-  ClientWidth = 797
+  ClientHeight = 489
+  ClientWidth = 805
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -13,15 +13,15 @@ object FrmPrincipal: TFrmPrincipal
   OldCreateOrder = False
   Position = poScreenCenter
   DesignSize = (
-    797
-    488)
+    805
+    489)
   PixelsPerInch = 96
   TextHeight = 13
   object MemoScript: TSynEdit
     Left = 0
     Top = 0
-    Width = 797
-    Height = 445
+    Width = 805
+    Height = 446
     Align = alTop
     Anchors = [akLeft, akTop, akRight, akBottom]
     Font.Charset = DEFAULT_CHARSET
@@ -47,35 +47,42 @@ object FrmPrincipal: TFrmPrincipal
     Gutter.ShowModification = True
     Highlighter = SynPasSyn1
     FontSmoothing = fsmNone
+    ExplicitWidth = 797
+    ExplicitHeight = 445
   end
   object btExecutar: TButton
     Left = 8
-    Top = 455
+    Top = 456
     Width = 257
     Height = 25
     Anchors = [akLeft, akBottom]
-    Caption = '&Executar'
+    Caption = '&Executar Script'
     TabOrder = 1
     OnClick = btExecutarClick
+    ExplicitTop = 455
   end
   object btSalvar: TButton
-    Left = 714
-    Top = 455
+    Left = 722
+    Top = 456
     Width = 75
     Height = 25
     Anchors = [akRight, akBottom]
     Caption = '&Salvar'
     TabOrder = 2
     OnClick = btSalvarClick
+    ExplicitLeft = 714
+    ExplicitTop = 455
   end
   object Button1: TButton
-    Left = 280
-    Top = 455
+    Left = 271
+    Top = 456
     Width = 281
     Height = 25
-    Caption = 'Executar o mesmo c'#243'digo Internamente'
+    Anchors = [akLeft, akBottom]
+    Caption = 'Executar Delphi'
     TabOrder = 3
     OnClick = Button1Click
+    ExplicitTop = 455
   end
   object SynPasSyn1: TSynPasSyn
     Options.AutoDetectEnabled = False
