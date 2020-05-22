@@ -1,8 +1,26 @@
-procedure teste( txt: String );
+procedure ABC( txt: String );
 begin
-   ShowMessage( txt );
+   ShowMessage('Estou no Script: ' + txt);
 end;
 
+
+
+
+var O: TClassEvento; 
 begin
-   teste( 'Olá Mundo' );
+   O := TClassEvento.Create(NIL);
+   try
+   
+      // ATRINUIÇÃO DO EVENTO
+      // **
+
+      // O.Evento := ABC;
+      O.Evento := @ABC;
+
+      // **
+      
+      O.Executar;
+   finally
+      O.Free;
+   end;
 end.

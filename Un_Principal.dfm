@@ -47,8 +47,6 @@ object FrmPrincipal: TFrmPrincipal
     Gutter.ShowModification = True
     Highlighter = SynPasSyn1
     FontSmoothing = fsmNone
-    ExplicitWidth = 813
-    ExplicitHeight = 399
   end
   object btExecutar: TButton
     Left = 8
@@ -59,7 +57,6 @@ object FrmPrincipal: TFrmPrincipal
     Caption = '&Executar'
     TabOrder = 1
     OnClick = btExecutarClick
-    ExplicitTop = 409
   end
   object btSalvar: TButton
     Left = 714
@@ -70,8 +67,15 @@ object FrmPrincipal: TFrmPrincipal
     Caption = '&Salvar'
     TabOrder = 2
     OnClick = btSalvarClick
-    ExplicitLeft = 730
-    ExplicitTop = 409
+  end
+  object Button1: TButton
+    Left = 280
+    Top = 455
+    Width = 281
+    Height = 25
+    Caption = 'Executar o mesmo c'#243'digo Internamente'
+    TabOrder = 3
+    OnClick = Button1Click
   end
   object SynPasSyn1: TSynPasSyn
     Options.AutoDetectEnabled = False
@@ -97,6 +101,7 @@ object FrmPrincipal: TFrmPrincipal
   object Scripter: TPSScript
     CompilerOptions = []
     OnCompile = ScripterCompile
+    OnExecImport = ScripterExecImport
     Plugins = <>
     UsePreProcessor = False
     Left = 432
