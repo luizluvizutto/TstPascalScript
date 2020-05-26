@@ -47,8 +47,6 @@ object FrmPrincipal: TFrmPrincipal
     Gutter.ShowModification = True
     Highlighter = SynPasSyn1
     FontSmoothing = fsmNone
-    ExplicitWidth = 797
-    ExplicitHeight = 445
   end
   object btExecutar: TButton
     Left = 8
@@ -59,7 +57,6 @@ object FrmPrincipal: TFrmPrincipal
     Caption = '&Executar Script'
     TabOrder = 1
     OnClick = btExecutarClick
-    ExplicitTop = 455
   end
   object btSalvar: TButton
     Left = 722
@@ -70,8 +67,6 @@ object FrmPrincipal: TFrmPrincipal
     Caption = '&Salvar'
     TabOrder = 2
     OnClick = btSalvarClick
-    ExplicitLeft = 714
-    ExplicitTop = 455
   end
   object Button1: TButton
     Left = 271
@@ -82,7 +77,6 @@ object FrmPrincipal: TFrmPrincipal
     Caption = 'Executar Delphi'
     TabOrder = 3
     OnClick = Button1Click
-    ExplicitTop = 455
   end
   object SynPasSyn1: TSynPasSyn
     Options.AutoDetectEnabled = False

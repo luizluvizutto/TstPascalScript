@@ -7,7 +7,7 @@ var O: TClassEvento;
 begin
    O := TClassEvento.Create(NIL);
    try
-      O.Evento := ABC;
+      O.Evento := @ABC;
       O.Executar;
    finally
       O.Free;

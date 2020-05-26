@@ -145,7 +145,7 @@ begin
    SIRegister_Std(Sender.Comp);
    SIRegister_Classes(Sender.Comp,true);
 
-   Sender.Comp.AddTypeS('TEvento', 'procedure( txt: String );');
+   Sender.Comp.AddTypeS('TEvento', 'procedure( txt: String ) of object;');
 
 
    with Sender.Comp.AddClassN(Sender.Comp.FindClass('TComponent'), 'TClassEvento') do begin
