@@ -41,6 +41,7 @@ type
   private
     { Private declarations }
     function arquivo: String;
+    procedure ProcedureDoEvento( txt: String );
   public
     constructor Create(AOwner: TComponent); override;
     { Public declarations }
@@ -48,7 +49,6 @@ type
   end;
 
 
-  procedure ProcedureDoEvento( txt: String );
 
 var
   FrmPrincipal: TFrmPrincipal;
@@ -64,10 +64,6 @@ begin
    Self.Evento := T;
 end;
 
-procedure ProcedureDoEvento( txt: String );
-begin
-   ShowMessage( 'Dentro do Delphi: ' + txt );
-end;
 
 
 {$R *.dfm}
@@ -89,13 +85,18 @@ begin
    Result := ExtractFilePath( Application.ExeName ) + 'script.pas';
 end;
 
+procedure TFrmPrincipal.ProcedureDoEvento( txt: String );
+begin
+   ShowMessage( 'Dentro do Delphi: ' + txt );
+end;
+
 procedure TFrmPrincipal.btExecutarClick(Sender: TObject);
 begin
    Scripter.Script.Text := MemoScript.Lines.Text;
    if Scripter.compile then begin
       Scripter.execute;
    end else begin
-      showmessage(Scripter.CompilerErrorToStr(0));
+      showmessage(String(Scripter.CompilerErrorToStr(0)));
    end;
 end;
 

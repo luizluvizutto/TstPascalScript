@@ -11,7 +11,7 @@ uses
 
 type
 
-  TEvento = procedure( txt: String );
+  TEvento = procedure( txt: String ) of object;
 
   TClassEvento = class( TComponent )
   private
