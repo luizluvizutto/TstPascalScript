@@ -42,13 +42,15 @@ type
     { Private declarations }
     function arquivo: String;
     procedure ProcedureDoEvento( txt: String );
+
+
   public
     constructor Create(AOwner: TComponent); override;
     { Public declarations }
 
   end;
 
-
+  procedure CriarException( mensagem: String );
 
 var
   FrmPrincipal: TFrmPrincipal;
@@ -137,11 +139,17 @@ begin
 
 end;
 
+procedure CriarException(mensagem: String);
+begin
+   raise Exception.Create(mensagem);
+end;
+
 procedure TFrmPrincipal.ScripterCompile(Sender: TPSScript);
 begin
    sender.AddFunction(@ExtractFileExt, 'function ExtractFileExt(const FileName: string): string;');
    sender.AddFunction(@ExtractFileName,'function ExtractFileName(const FileName: string): string;');
    sender.AddFunction(@ShowMessage,    'procedure ShowMessage(const Msg: string);');
+   sender.AddFunction(@CriarException, 'procedure CriarException( mensagem: String );');
 
    SIRegister_Std(Sender.Comp);
    SIRegister_Classes(Sender.Comp,true);
