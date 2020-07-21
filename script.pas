@@ -5,7 +5,6 @@ end;
 
 procedure Eventos;
 var O: TClassEvento;
-    emsg: String;
 begin
    O := TClassEvento.Create(NIL);
    try
@@ -34,7 +33,16 @@ begin
    end;
 end;
 
+procedure TesteTrunca;
+var x: Double;
+begin
+   x := 19.99 * 100;
+   x := Trunc( x );
+   ShowMessage( FloatToStr( x ) );
+end;
+
 begin
    // Eventos;
-   excecao;
+   // excecao;
+   TesteTrunca;
 end.
