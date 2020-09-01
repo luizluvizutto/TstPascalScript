@@ -34,15 +34,29 @@ begin
 end;
 
 procedure TesteTrunca;
-var x: Double;
+var x: Integer;
+    res, aux: Integer;
+    
 begin
-   x := 19.99 * 100;
-   x := Trunc( x );
-   ShowMessage( FloatToStr( x ) );
+   x := 5034;
+   if x <= 10 then begin
+      res := 10;
+   end else begin
+      aux := x mod 10;
+      if aux <> 0 then begin
+         res := x + ( 10-aux );
+      end else begin
+         res := x;
+      end;
+   end; 
+   
+   
+   ShowMessage( IntToStr( res ) );
+   
 end;
 
 begin
+   TesteTrunca; 
    // Eventos;
    // excecao;
-   TesteTrunca;
 end.
