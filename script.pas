@@ -3,12 +3,19 @@ begin
    ShowMessage('Estou no Script: ' + txt);
 end;
 
+function ABC2( txt: TStringList ): Integer;
+begin
+   Result := 22;
+end;
+
+
 procedure Eventos;
 var O: TClassEvento;
 begin
    O := TClassEvento.Create(NIL);
    try
       O.Evento := @ABC;
+      O.Evento2 := @ABC2;
       O.Executar;
       
       ShowMessage('Concluido'); 
@@ -56,7 +63,7 @@ begin
 end;
 
 begin
-   TesteTrunca; 
-   // Eventos;
+   // TesteTrunca; 
+   Eventos;
    // excecao;
 end.

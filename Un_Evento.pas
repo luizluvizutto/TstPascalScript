@@ -11,13 +11,16 @@ uses
 
 type
 
-  TEvento = procedure( txt: String ) of object;
+  TEvento  = procedure( txt: String ) of object;
+  TEvento2 = function( S: TStringList ): Integer of object;
 
   TClassEvento = class( TComponent )
   private
      FEvento: TEvento;
+     FEvento2: TEvento2;
   public
-     property Evento: TEvento read FEvento write FEvento;
+     property Evento:  TEvento  read FEvento  write FEvento;
+     property Evento2: TEvento2 read FEvento2 write FEvento2;
      procedure Executar;
   end;
 
@@ -27,11 +30,25 @@ implementation
 { TClassEvento }
 
 procedure TClassEvento.Executar;
+var S: TStringList;
 begin
    ShowMessage( 'Cliquei no Executar' );
    if Assigned(FEvento) then begin
       FEvento( 'Olá Mundo' );
    end;
+
+   if Assigned(FEvento2) then begin
+
+      S := TStringList.Create;
+      try
+         ShowMessage(
+         IntToStr( FEvento2( S ) ) );
+      finally
+         S.Free;
+      end;
+
+   end;
+
 end;
 
 end.

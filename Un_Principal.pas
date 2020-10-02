@@ -66,6 +66,14 @@ begin
    Self.Evento := T;
 end;
 
+procedure TCLASSEVENTO2_R(Self: TClassEvento; var T: TEvento2);
+begin
+   T := Self.Evento2;
+end;
+procedure TCLASSEVENTO2_W(Self: TClassEvento; const T: TEvento2);
+begin
+   Self.Evento2 := T;
+end;
 
 
 {$R *.dfm}
@@ -154,11 +162,13 @@ begin
    SIRegister_Std(Sender.Comp);
    SIRegister_Classes(Sender.Comp,true);
 
-   Sender.Comp.AddTypeS('TEvento', 'procedure( txt: String ) of object;');
+   Sender.Comp.AddTypeS('TEvento',  'procedure( txt: String ) of object;');
+   Sender.Comp.AddTypeS('TEvento2', 'function( S: TStringList ): Integer of object;');
 
 
    with Sender.Comp.AddClassN(Sender.Comp.FindClass('TComponent'), 'TClassEvento') do begin
-      RegisterProperty('Evento',  'TEvento',      iptrw);
+      RegisterProperty('Evento',   'TEvento',      iptrw);
+      RegisterProperty('Evento2',  'TEvento2',     iptrw);
       RegisterMethod('procedure Executar;');
    end;
 
@@ -173,6 +183,7 @@ begin
 
    with X.Add(TClassEvento) do begin
       RegisterPropertyHelper(@TCLASSEVENTO_R, @TCLASSEVENTO_W, 'Evento');
+      RegisterPropertyHelper(@TCLASSEVENTO2_R, @TCLASSEVENTO2_W, 'Evento2');
       RegisterMethod(@TClassEvento.Executar, 'Executar');
    end;
 end;
